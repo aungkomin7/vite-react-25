@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Classic White T-Shirt",
+      "brand": "UrbanWear",
+      "category": "tops",
+      "price": 19.99,
+      "sizes": ["S", "M", "L", "XL"],
+      "colors": ["white"],
+      "stock": 120
+    },
+    {
+      "id": "2",
+      "name": "Slim Fit Jeans",
+      "brand": "DenimCo",
+      "category": "bottoms",
+      "price": 49.99,
+      "sizes": ["30", "32", "34", "36"],
+      "colors": ["blue", "black"],
+      "stock": 60
+    },
+    {
+      "id": "3",
+      "name": "Hooded Jacket",
+      "brand": "StreetStyle",
+      "category": "outerwear",
+      "price": 89.99,
+      "sizes": ["M", "L", "XL"],
+      "colors": ["black", "green"],
+      "stock": 35
+    }
+  ]
+}

@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { GoTrash } from "react-icons/go";
 import { GrEdit } from "react-icons/gr";
-import { IoIosAddCircleOutline } from "react-icons/io";
 import { LuSave } from "react-icons/lu";
+import { toast } from "sonner";
+import Swal from "sweetalert2";
 
-const HeroSection = () => {
+const TodoApp = () => {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
@@ -20,13 +21,28 @@ const HeroSection = () => {
   };
 
   const deleteTask = (idx) => {
-    const newTasks = tasks.filter((el, index) => index !== idx);
-    setTasks(newTasks);
+    const newTasks = tasks.filter((_, index) => index !== idx);
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setTasks(newTasks);
+        toast(`Task deleted!`, { position: "top-center" });
+      }
+    });
   };
 
   const handleAddKey = (e) => {
     if (e.key === "Enter") {
       addTask();
+      toast(`Task added!`, { position: "top-center" });
     }
   };
 
@@ -122,4 +138,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default TodoApp;
